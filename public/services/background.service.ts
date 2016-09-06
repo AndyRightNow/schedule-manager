@@ -13,11 +13,9 @@ export class BackgroundService {
 
     public generate() {
         this._generator.generate();
-        console.log('gen');
     }
 
     public resize() {
         this._generator = new RandomBackgroundGenerator(this._initialArgObj);
-        console.log(this._generator);
     }
 }

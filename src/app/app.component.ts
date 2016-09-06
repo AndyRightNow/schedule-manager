@@ -51,12 +51,7 @@ export class AppComponent implements AfterViewInit {
     this._backgroundService.generate();
   }
 
-  /*
-   * onResize function called every time the window gets resized
-   * 
-   * @param {any} event: The event
-   */
-  onResize(event: any) {
+  _updateBackground() {
     //-----------------------------
     // Update the size of the background
     // canvas and regenerate the background
@@ -64,5 +59,14 @@ export class AppComponent implements AfterViewInit {
     this._updateBackgroundSize();
     this._backgroundService.resize();
     this._backgroundService.generate();
+  }
+
+  /*
+   * onResize function called every time the window gets resized
+   * 
+   * @param {any} event: The event
+   */
+  onResize(event: any) {
+    this._updateBackground();
   }
 }
