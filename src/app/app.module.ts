@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { ContainerComponent } from './container/container.component';
 import { BackgroundService } from './../../public/services/background.service';
 import { FormsModule } from '@angular/forms';
-import { ClampPipe } from './../shared/pipes/clamp.pipe';
+import { ClampPipe } from './../../public/pipes/clamp.pipe';
+import { ContainerComponent } from './container/container.component';
+import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { ScheduleContainerComponent } from './schedule-container/schedule-container.component';
 
 @NgModule({
   imports: [
@@ -12,7 +14,11 @@ import { ClampPipe } from './../shared/pipes/clamp.pipe';
     FormsModule
   ],
   declarations: [
-    AppComponent, ContainerComponent, ClampPipe
+    AppComponent,
+    ContainerComponent,
+    MenuBarComponent,
+    ScheduleContainerComponent,
+    ClampPipe,
   ],
   bootstrap: [ AppComponent ],
   providers: [BackgroundService]

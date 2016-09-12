@@ -13,6 +13,6 @@ describe('ContainerComponent', () => {
   });
   it('should work', () => {
     let fixture = TestBed.createComponent(ContainerComponent);
-    expect(fixture.componentInstance instanceof ContainerComponent).toBe(true, 'should create AppComponent');
+    expect(fixture.componentInstance instanceof ContainerComponent).toBe(true, 'should create ContainerComponent');
   });
 });
