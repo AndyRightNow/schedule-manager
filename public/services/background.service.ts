@@ -1,21 +1,21 @@
 let RandomBackgroundGenerator = require('./../lib/RandomBackgroundGenerator.min');
 
 export class BackgroundService {
-    private _generator: any;
-    private _initialArgObj: Object;
+    private generator: any;
+    private initialArgObj: Object;
 
     constructor() {}
 
     public init(argObj: Object) {
-        this._initialArgObj = Object.assign({}, argObj);
-        this._generator = new RandomBackgroundGenerator(argObj);
+        this.initialArgObj = Object.assign({}, argObj);
+        this.generator = new RandomBackgroundGenerator(argObj);
     }
 
     public generate() {
-        this._generator.generate();
+        this.generator.generate();
     }
 
     public resize() {
-        this._generator = new RandomBackgroundGenerator(this._initialArgObj);
+        this.generator = new RandomBackgroundGenerator(this.initialArgObj);
     }
 }

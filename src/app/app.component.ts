@@ -1,7 +1,13 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Input
+} from '@angular/core';
 import './../../public/css/styles.css';
 import './../../public/css/normalize.css';
-import { BackgroundService } from './../../public/services/background.service';
+import {
+  BackgroundService
+} from './../../public/services/background.service';
 
 @Component({
   selector: 'sm-app',
@@ -9,58 +15,53 @@ import { BackgroundService } from './../../public/services/background.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements AfterViewInit { 
-  private _canvasWidth: number;
-  private _canvasHeight: number;
-  private _canvasId: string;
-
-  /*
-   * Update size of the background to fit the window
-   */
-  private _updateBackgroundSize() {
-    this._canvasWidth = window.innerWidth;
-    this._canvasHeight = window.innerHeight;
-  }
+export class AppComponent implements AfterViewInit {
+  private canvasWidth: number;
+  private canvasHeight: number;
+  private canvasId: string;
 
   /*
    * Constructor
    *  
    * @param {BackgroundService} _backgroundService: Service to generate the background
    */
-  constructor(private _backgroundService: BackgroundService) {
-    this._updateBackgroundSize();
+  constructor(private backgroundService: BackgroundService) {
+    // Set size of the background to fit the window
+    this.canvasWidth = window.innerWidth;
+    this.canvasHeight = window.innerHeight;
     // Init canvas id
-    this._canvasId = 'background';
+    this.canvasId = 'background';
   }
 
   /*
    * AfterViewInit Lifecycle Hook Function 
    *  
    */
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     //------------------------------
     // Init the background service with
     // default parameters
     //------------------------------
-    this._backgroundService.init({
-      canvasId: this._canvasId,
+    this.backgroundService.init({
+      canvasId: this.canvasId,
       mode: 'Polygonal',
       density: {
-        x: 0.7, y: 0.6
+        x: 0.7,
+        y: 0.6
       },
       baseColors: ['#4183d7', '#26A65B', '#663399'],
       isMixed: false
     });
     // Generate the background
-    this._backgroundService.generate();
+    this.backgroundService.generate();
   }
-  
+
   /*
    * onResize function called every time the window gets resized
    * 
    * @param {any} event: The event
    */
   onResize(event: any) {
-    this._backgroundService.generate();
+    this.backgroundService.generate();
   }
 }
