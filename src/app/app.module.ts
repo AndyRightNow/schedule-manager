@@ -7,11 +7,18 @@ import { ClampPipe } from './../../public/pipes/clamp.pipe';
 import { ContainerComponent } from './container/container.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { ScheduleContainerComponent } from './schedule-container/schedule-container.component';
+import { MdCardModule } from '@angular2-material/card';
+import { MdButtonModule } from '@angular2-material/button';
+import { MdIconModule, MdIconRegistry } from '@angular2-material/icon';
+import { FaComponent } from 'angular2-fontawesome/components';
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MdCardModule,
+    MdButtonModule,
+    MdIconModule
   ],
   declarations: [
     AppComponent,
@@ -19,9 +26,12 @@ import { ScheduleContainerComponent } from './schedule-container/schedule-contai
     MenuBarComponent,
     ScheduleContainerComponent,
     ClampPipe,
+    FaComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [BackgroundService]
+  providers: [
+    BackgroundService, 
+    MdIconRegistry]
 })
 
 export class AppModule { }

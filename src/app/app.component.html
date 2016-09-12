@@ -4,8 +4,12 @@
         (window:resize)="onResize($event)"
         (click)="backgroundService.generate()"
 ></canvas>
-<sm-container [widthRatio]="0.5"
-              [heightRatio]="0.8">
-  <sm-menu-bar></sm-menu-bar>
+<sm-container [widthRatio]="0.5" [heightRatio]="0.8">
+  <sm-menu-bar>
+    <button md-mini-fab color="primary">
+      <!--<fa [name]="'facebook'" [size]="1"></fa>-->
+      <md-icon class="md-24">mode_edit</md-icon>
+    </button>
+  </sm-menu-bar>
   <sm-schedule-container></sm-schedule-container>
 </sm-container>
