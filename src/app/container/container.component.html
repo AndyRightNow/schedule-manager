@@ -1,0 +1,8 @@
+<div  id="container" 
+      [ngStyle]=
+      "{
+        width: (widthRatio | clamp: ratioLower:ratioUpper) * 100 + 'vw', 
+        height: (heightRatio | clamp: ratioLower:ratioUpper)  * 100 + 'vh'
+      }">
+  <ng-content></ng-content>
+</div>
