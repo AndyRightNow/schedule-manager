@@ -33,6 +33,10 @@ export class AppComponent implements AfterViewInit {
     this._canvasId = 'background';
   }
 
+  /*
+   * AfterViewInit Lifecycle Hook Function 
+   *  
+   */
   ngAfterViewInit(){
     //------------------------------
     // Init the background service with
@@ -50,23 +54,13 @@ export class AppComponent implements AfterViewInit {
     // Generate the background
     this._backgroundService.generate();
   }
-
-  _updateBackground() {
-    //-----------------------------
-    // Update the size of the background
-    // canvas and regenerate the background
-    //-----------------------------
-    this._updateBackgroundSize();
-    this._backgroundService.resize();
-    this._backgroundService.generate();
-  }
-
+  
   /*
    * onResize function called every time the window gets resized
    * 
    * @param {any} event: The event
    */
   onResize(event: any) {
-    this._updateBackground();
+    this._backgroundService.generate();
   }
 }
