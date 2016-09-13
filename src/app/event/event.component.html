@@ -1,0 +1,39 @@
+<div id="event">
+  <div class="col">
+    <div class="paddingtb3">
+      <label for="title">Title: </label>
+      <span class="break-word" [hidden]="isTitleEditing"> {{ event.title }} </span>
+      <input  placeholder="Enter an event title" 
+              type="text" 
+              id="title" 
+              [(ngModel)]="event.title" 
+              [hidden]="!isTitleEditing">
+      <span [hidden]="isTitleEditing" (click)="isTitleEditing = true"><md-icon>mode_edit</md-icon></span>
+      <span [hidden]="!isTitleEditing" (click)="isTitleEditing = false"><md-icon>done</md-icon></span>
+    </div>
+    <div class="paddingtb3">
+      <label for="desc">Description: </label>
+      <span class="break-word" [hidden]="isDescEditing"> {{ event.description }} </span>
+      <textarea placeholder="Enter an event description" 
+                type="text" 
+                id="desc" 
+                [(ngModel)]="event.description" 
+                [hidden]="!isDescEditing"></textarea>
+      <span [hidden]="isDescEditing" (click)="isDescEditing = true"><md-icon>mode_edit</md-icon></span>
+      <span [hidden]="!isDescEditing" (click)="isDescEditing = false"><md-icon>done</md-icon></span>
+    </div>
+  </div><div class="col">
+    <div class="paddingtb3">
+      <label for="start-time">Start Time: </label>
+      <span [hidden]="isStartTimeEditing"> {{ event.startTime | date }} </span>
+      <span [hidden]="isStartTimeEditing" (click)="isStartTimeEditing = true"><md-icon>mode_edit</md-icon></span>
+      <span [hidden]="!isStartTimeEditing" (click)="isStartTimeEditing = false"><md-icon>done</md-icon></span>
+    </div>
+    <div class="paddingtb3">
+      <label for="end-time">End Time: </label>
+      <span [hidden]="isEndTimeEditing"> {{ event.endTime | date }} </span>
+      <span [hidden]="isEndTimeEditing" (click)="isEndTimeEditing = true"><md-icon>mode_edit</md-icon></span>
+      <span [hidden]="!isEndTimeEditing" (click)="isEndTimeEditing = false"><md-icon>done</md-icon></span>
+    </div>
+  </div>
+</div>
