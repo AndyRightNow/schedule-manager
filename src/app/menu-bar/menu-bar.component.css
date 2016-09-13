@@ -2,3 +2,12 @@
   width: 100%;
   height: 100%;
 }
+
+.menu-btn {
+    float: right;
+    margin: 10px;
+}
+
+fa {
+    font-size: 14px;
+}

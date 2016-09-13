@@ -9,7 +9,6 @@ import '@angular/router';
 // Angular 2 Material
 import '@angular2-material/core';
 import '@angular2-material/button';
-import '@angular2-material/card';
 import '@angular2-material/icon';
 // RxJS
 import 'rxjs';
