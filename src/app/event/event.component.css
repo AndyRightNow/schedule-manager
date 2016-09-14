@@ -37,10 +37,20 @@ md-icon:hover {
   -ms-transition: all .3s ease-in-out;
 }
 
+label,
+input,
+textarea,
+.col {
+  vertical-align: top;
+}
+
 label {
   font-weight: 600;
   margin-right: 5px;
-  vertical-align: top;
+}
+
+.time-input {
+  max-width: 55px;
 }
 
 input,
@@ -65,7 +75,6 @@ textarea:focus {
 
 .col {
   display: inline-block;
-  vertical-align: top;
   width: 50%;
 }
 

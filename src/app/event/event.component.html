@@ -25,13 +25,51 @@
   </div><div class="col">
     <div class="paddingtb3">
       <label for="start-time">Start Time: </label>
-      <span [hidden]="isStartTimeEditing"> {{ event.startTime | date }} </span>
+      <span [hidden]="isStartTimeEditing"> {{ event.startTime }} </span>
+      <span [hidden]="!isStartTimeEditing">
+        <input  placeholder="Hour" 
+                type="text" 
+                id="start-hour" 
+                [(ngModel)]="startHour"
+                class="time-input">
+        <span>: </span>
+        <input  placeholder="Minute" 
+                type="text" 
+                id="start-min" 
+                [(ngModel)]="startMin"
+                class="time-input">
+        <span>: </span>
+        <input  placeholder="Second" 
+                type="text" 
+                id="start-sec" 
+                [(ngModel)]="startSec"
+                class="time-input">
+      </span>
       <span [hidden]="isStartTimeEditing" (click)="isStartTimeEditing = true"><md-icon>mode_edit</md-icon></span>
       <span [hidden]="!isStartTimeEditing" (click)="isStartTimeEditing = false"><md-icon>done</md-icon></span>
     </div>
     <div class="paddingtb3">
       <label for="end-time">End Time: </label>
-      <span [hidden]="isEndTimeEditing"> {{ event.endTime | date }} </span>
+      <span [hidden]="isEndTimeEditing"> {{ event.endTime }} </span>
+      <span [hidden]="!isEndTimeEditing">
+        <input  placeholder="Hour" 
+                type="text" 
+                id="end-hour" 
+                [(ngModel)]="endHour"
+                class="time-input">
+        <span>: </span>
+        <input  placeholder="Minute" 
+                type="text" 
+                id="end-min" 
+                [(ngModel)]="endMin"
+                class="time-input">
+        <span>: </span>
+        <input  placeholder="Second" 
+                type="text" 
+                id="end-sec" 
+                [(ngModel)]="endSec"
+                class="time-input">
+      </span>
       <span [hidden]="isEndTimeEditing" (click)="isEndTimeEditing = true"><md-icon>mode_edit</md-icon></span>
       <span [hidden]="!isEndTimeEditing" (click)="isEndTimeEditing = false"><md-icon>done</md-icon></span>
     </div>
