@@ -15,7 +15,6 @@ import { DataService } from './../../../public/services/data.service';
 export class MenuBarComponent implements OnInit {
 
 	private addEvent() {
-		console.log("add event");
 		this.dataService.add(new smEvent());
 	}
 
