@@ -2,4 +2,10 @@
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
+  overflow: hidden;
+}
+
+#event-container {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }

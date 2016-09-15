@@ -8,7 +8,6 @@ sm-schedule-container {
     display: block;
 }
 sm-menu-bar {
-    min-height: 25px;
     height: 55px;
     padding-right: 10px;
 }
@@ -17,4 +16,5 @@ sm-schedule-container {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
+    overflow: hidden;
 }

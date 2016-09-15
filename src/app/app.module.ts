@@ -11,6 +11,7 @@ import { ScheduleContainerComponent } from './schedule-container/schedule-contai
 import { MdButtonModule } from '@angular2-material/button';
 import { MdIconModule, MdIconRegistry } from '@angular2-material/icon';
 import { FaComponent } from 'angular2-fontawesome/components';
+import { DataService } from './../../public/services/data.service';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { FaComponent } from 'angular2-fontawesome/components';
   bootstrap: [ AppComponent ],
   providers: [
     BackgroundService, 
-    MdIconRegistry]
+    MdIconRegistry,
+    DataService]
 })
 
 export class AppModule { }

@@ -4,3 +4,20 @@ html, body {
     font-weight: 300;
     overflow: hidden;
 }
+
+.paddingtb3 {
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+fa {
+    font-size: 14px;
+}
+.clear-both {
+    clear: both;
+}

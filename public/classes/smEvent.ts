@@ -1,11 +1,14 @@
+type Time = { hour: number, minute: number, second: number };
+
 export class smEvent {
   title: string = "";
   description: string = "";
-  startTime: Object;
-  endTime: Object;
+  startTime: Time;
+  endTime: Time;
   isSelected: boolean = false;
   type: string = "";
   priority: number = 0;
+  id: number = 0;
 
   constructor() {
     this.startTime = {
