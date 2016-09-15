@@ -15,12 +15,20 @@ import { DataService } from './../../../public/services/data.service';
 })
 export class EventComponent implements OnInit, DoCheck {
 	@Input() event: smEvent;
+
+	//--------------------------------
+	// Flags to toggle input boxes
+	// editing states
+	//--------------------------------
 	private isTitleEditing: boolean = true;
 	private isDescEditing: boolean = true;
 	private isStartTimeEditing: boolean = true;
 	private isEndTimeEditing: boolean = true;
+
+	// Visual presentation of priority
 	private priorityArray: boolean[] = new Array(5).fill(false);
 
+		
 	private formatTime(time: number | string): string {
 		return time == "" ? "00" : time.toString().split('').map((val, index, arr) => {
 			return index == 0 && arr.length == 1 ? "0" + val : val;

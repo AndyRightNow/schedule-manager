@@ -1,20 +1,22 @@
 canvas {
-    position: absolute;
+  position: absolute;
 }
 
 sm-container,
 sm-menu-bar,
 sm-schedule-container {
-    display: block;
+  display: block;
 }
+
 sm-menu-bar {
-    height: 55px;
-    padding-right: 10px;
+  height: 65px;
+  padding-right: 10px;
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.47);
 }
 
 sm-schedule-container {
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  overflow: hidden;
 }

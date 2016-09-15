@@ -21,3 +21,6 @@ fa {
 .clear-both {
     clear: both;
 }
+.text-right {
+    text-align: right;
+}

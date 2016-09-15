@@ -3,11 +3,13 @@ import {
   AfterViewInit,
   Input
 } from '@angular/core';
-import './../../public/css/styles.css';
-import './../../public/css/normalize.css';
 import {
   BackgroundService
 } from './../../public/services/background.service';
+
+// CSS
+import './../../public/css/styles.css';
+import './../../public/css/normalize.css';
 
 @Component({
   selector: 'sm-app',
