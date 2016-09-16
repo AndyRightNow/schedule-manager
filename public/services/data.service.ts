@@ -4,7 +4,9 @@
 
 import { smEvent } from './../classes/smEvent';
 import { Utils } from './../classes/utils';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class DataService {
   // The data in memory
   private data: smEvent[] = [];

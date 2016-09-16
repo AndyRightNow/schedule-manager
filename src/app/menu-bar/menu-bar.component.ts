@@ -15,14 +15,6 @@ import { MenuService } from './../../../public/services/menu.service';
 })
 export class MenuBarComponent implements OnInit {
 
-	/*
-	 * Add an event to the DataService in-memory storage
-	 *
-	 */
-	private addEvent() {
-		this.dataService.add(new smEvent());
-	}
-
   constructor(private dataService: DataService,
 							private menuService: MenuService ) { }
 

@@ -67,7 +67,10 @@ export class EventComponent implements OnInit, DoCheck {
 	constructor(private dataService: DataService,
 							private menuService: MenuService) { }
 
-	ngOnInit() { }
+	ngOnInit() { 
+		// Initialize priority view based on data
+		this.changePriority(this.event.priority - 1);
+	 }
 
 	ngDoCheck() {
 		//-------------------------------------------------

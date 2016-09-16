@@ -1,11 +1,33 @@
-export class MenuService {
-  private _isSelectionModeOn: boolean = false;
+import { DataService } from './data.service';
+import { smEvent } from './../classes/smEvent';
+import { Injectable } from '@angular/core';
 
-  public toggleSelectionMode() {
-    this._isSelectionModeOn = !this._isSelectionModeOn;
+@Injectable()
+export class MenuService {
+  // Flag to indicate if it's in editing mode
+  private _isEditMode: boolean = false;
+
+  constructor(private dataService: DataService) { }  
+
+	/*
+	 * Add an event to the DataService in-memory storage
+	 *
+	 */
+	private addEvent() {
+		this.dataService.add(new smEvent());
+	}
+  
+  /*
+   * Toggle editing mode
+   */
+  public toggleEditMode() {
+    this._isEditMode = !this._isEditMode;
   }
 
-  get isSelectionModeOn() {
-    return this._isSelectionModeOn;
+  /*
+   * Get whether it's in editing mode
+   */  
+  get isEditModeOn() {
+    return this._isEditMode;
   }
 }
