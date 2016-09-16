@@ -9,6 +9,9 @@ export class DataService {
   // The data in memory
   private data: smEvent[] = [];
 
+  // The undo stack
+  private undoStack: smEvent[] = [];
+
   constructor() { }
 
   /*
@@ -46,6 +49,7 @@ export class DataService {
    * @param {number} deleteCount: The number of elements to delete
    */
   public delete(pos: number, deleteCount: number = 1) {
+    this.pushStack(this.data[pos]);
     this.data.splice(pos, deleteCount);
     this.assignIds(pos);
   }
@@ -71,5 +75,42 @@ export class DataService {
         Utils.getTime(a.startTime.hour, a.startTime.minute, a.startTime.second) -
         Utils.getTime(b.startTime.hour, b.startTime.minute, b.startTime.second) : b.priority - a.priority;
     });
+  }
+
+  /*
+   * Push an event to the undo stack
+   *
+   * @param {smEvent} event: The event to push
+   */
+  public pushStack(event: smEvent) {
+    this.undoStack.push(event);
+  }
+
+  /*
+   * Pop an event from the undo stack
+   *
+   */
+  public popStack(): smEvent {
+    return this.undoStack.pop();
+  }
+
+  /*
+   * Check if the undo stack is empty
+   *
+   */
+  public isStackEmpty(): boolean {
+    return this.undoStack.length == 0;
+  }
+
+  /*
+   * Undo deleting an event
+   *
+   * @param {smEvent} event: The event to push
+   */
+  public undo() {
+    if (!this.isStackEmpty()) {
+      let e = this.popStack();
+      this.insert(e.id, e);
+    }
   }
 }

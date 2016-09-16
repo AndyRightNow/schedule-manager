@@ -1,4 +1,7 @@
 <div id="menu-bar">
+    <a class="menu-btn float-left" md-mini-fab color="accent" (click)="dataService.undo()" *ngIf="!dataService.isStackEmpty()">
+      <md-icon class="md-24">undo</md-icon>
+    </a>
     <a class="menu-btn float-right" md-mini-fab color="accent" (click)="menuService.toggleSelectionMode()">
       <md-icon class="md-24">mode_edit</md-icon>
     </a>
