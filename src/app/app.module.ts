@@ -9,8 +9,7 @@ import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { EventComponent } from './event/event.component';
 import { ScheduleContainerComponent } from './schedule-container/schedule-container.component';
 import { MdButtonModule } from '@angular2-material/button';
-import { MdIconModule, MdIconRegistry } from '@angular2-material/icon';
-import { FaComponent } from 'angular2-fontawesome/components';
+import { MdIconModule } from '@angular2-material/icon';
 import { DataService } from './../../public/services/data.service';
 import { MenuService } from './../../public/services/menu.service';
 
@@ -18,8 +17,8 @@ import { MenuService } from './../../public/services/menu.service';
   imports: [
     BrowserModule,
     FormsModule,
-    MdButtonModule,
-    MdIconModule
+    MdButtonModule.forRoot(),
+    MdIconModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -27,13 +26,11 @@ import { MenuService } from './../../public/services/menu.service';
     MenuBarComponent,
     ScheduleContainerComponent,
     ClampPipe,
-    FaComponent,
     EventComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
     BackgroundService, 
-    MdIconRegistry,
     DataService,
     MenuService
   ]

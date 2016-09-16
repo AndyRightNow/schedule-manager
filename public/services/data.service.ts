@@ -57,6 +57,14 @@ export class DataService {
   }
 
   /*
+   * Clear all data
+   *
+   */
+  public clear() {
+    this.data = [];
+  }
+
+  /*
    * Insert an event at a certain position
    *
    * @param {number} pos: The position to insert at
