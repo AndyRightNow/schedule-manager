@@ -1,5 +1,5 @@
 <div id="menu-bar">
-    <a class="menu-btn float-right" md-mini-fab color="accent">
+    <a class="menu-btn float-right" md-mini-fab color="accent" (click)="menuService.toggleSelectionMode()">
       <md-icon class="md-24">mode_edit</md-icon>
     </a>
     <button class="menu-btn float-right" md-mini-fab color="primary"  (click)="addEvent()">

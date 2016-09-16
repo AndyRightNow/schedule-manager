@@ -12,6 +12,7 @@ import { MdButtonModule } from '@angular2-material/button';
 import { MdIconModule, MdIconRegistry } from '@angular2-material/icon';
 import { FaComponent } from 'angular2-fontawesome/components';
 import { DataService } from './../../public/services/data.service';
+import { MenuService } from './../../public/services/menu.service';
 
 @NgModule({
   imports: [
@@ -33,7 +34,9 @@ import { DataService } from './../../public/services/data.service';
   providers: [
     BackgroundService, 
     MdIconRegistry,
-    DataService]
+    DataService,
+    MenuService
+  ]
 })
 
 export class AppModule { }

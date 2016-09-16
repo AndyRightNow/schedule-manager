@@ -6,6 +6,7 @@ import {
 
 import { smEvent } from './../../../public/classes/smEvent';
 import { DataService } from './../../../public/services/data.service';
+import { MenuService } from './../../../public/services/menu.service';
 
 @Component({
   selector: 'sm-menu-bar',
@@ -18,7 +19,8 @@ export class MenuBarComponent implements OnInit {
 		this.dataService.add(new smEvent());
 	}
 
-  constructor(private dataService: DataService ) { }
+  constructor(private dataService: DataService,
+							private menuService: MenuService ) { }
 
 	ngOnInit() {
 	}

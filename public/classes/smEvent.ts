@@ -5,7 +5,6 @@ export class smEvent {
   description: string = "";
   startTime: Time;
   endTime: Time;
-  isSelected: boolean = false;
   priority: number = 0;
   id: number = 0;
 
