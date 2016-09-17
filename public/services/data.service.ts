@@ -64,17 +64,18 @@ export class DataService {
    *
    */
   public clear() {
-    this.data = [];
+    this.pushStack.apply(this, this.data);
+    this.data.splice(0, this.data.length);
   }
 
   /*
-   * Insert an event at a certain position
+   * Insert (an) event(s) at a certain position
    *
    * @param {number} pos: The position to insert at
    * @param {smEvent} event: The event to insert
    */  
-  public insert(pos: number, event: smEvent) {
-    this.data.splice(pos, 0, event);
+  public insert(pos: number, event: smEvent | smEvent[] | any) {
+    Array.prototype.splice.apply(this.data, [pos, 0].concat(Array.from(arguments).slice(1)));
     this.assignIds(pos);
   }
 
@@ -92,12 +93,12 @@ export class DataService {
   }
 
   /*
-   * Push an event to the undo stack
+   * Push (an) event(s) to the undo stack
    *
    * @param {smEvent} event: The event to push
    */
-  public pushStack(event: smEvent) {
-    this.undoStack.push(event);
+  public pushStack(event: smEvent | smEvent[]) {
+    Array.prototype.push.apply(this.undoStack, Array.from(arguments));
 
     //------------------------------
     // Clear all elements before
@@ -113,7 +114,7 @@ export class DataService {
    * Pop an event from the undo stack
    *
    */
-  public popStack(): smEvent {
+  public popStack(): smEvent | smEvent[] | any {
     return this.undoStack.pop();
   }
 
@@ -133,7 +134,8 @@ export class DataService {
   public undo() {
     if (!this.isStackEmpty()) {
       let e = this.popStack();
-      this.insert(e.id, e);
+      this.insert.apply(this, [e.id || this.data.length].concat(e));
+      this.assignIds(0);
     }
   }
 }

@@ -12,13 +12,15 @@ import { MdButtonModule } from '@angular2-material/button';
 import { MdIconModule } from '@angular2-material/icon';
 import { DataService } from './../../public/services/data.service';
 import { MenuService } from './../../public/services/menu.service';
+import { MdTooltipModule } from '@angular2-material/tooltip';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     MdButtonModule.forRoot(),
-    MdIconModule.forRoot()
+    MdIconModule.forRoot(),
+    MdTooltipModule.forRoot()
   ],
   declarations: [
     AppComponent,

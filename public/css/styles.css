@@ -24,3 +24,8 @@ fa {
 .text-right {
     text-align: right;
 }
+
+[color="warn"] {
+    background-color: orangered;
+    color: white!important;
+}
