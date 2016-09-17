@@ -83,11 +83,12 @@ export class DataService {
    *
    */  
   public sort() {
-    this.data.sort((a, b) => {
+    this.data = this.data.sort((a, b) => {
       return a.priority == b.priority ?
         Utils.getTime(a.startTime.hour, a.startTime.minute, a.startTime.second) -
         Utils.getTime(b.startTime.hour, b.startTime.minute, b.startTime.second) : b.priority - a.priority;
     });
+    this.assignIds(0);
   }
 
   /*
