@@ -6,15 +6,15 @@
       <md-icon class="md-24">undo</md-icon>
     </a>
     <a  class="menu-btn float-right" 
+        md-mini-fab color="accent" 
+        (click)="menuService.toggleEditMode()">
+      <md-icon class="md-24">mode_edit</md-icon>
+    </a>
+    <a  class="menu-btn float-right" 
         md-mini-fab color="warn"  
         *ngIf="menuService.isEditModeOn" 
         (click)="dataService.clear()">
       <md-icon class="md-24">delete_forever</md-icon>
-    </a>
-    <a  class="menu-btn float-right" 
-        md-mini-fab color="accent" 
-        (click)="menuService.toggleEditMode()">
-      <md-icon class="md-24">mode_edit</md-icon>
     </a>
     <a  class="menu-btn float-right" 
         md-mini-fab color="primary"  
