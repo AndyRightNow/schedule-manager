@@ -14,6 +14,9 @@ export class DataService {
   // The undo stack
   private undoStack: smEvent[] = [];
 
+  // The undo stack limit
+  private static UNDO_STACK_LIMIT: number = 100;
+
   constructor() { }
 
   /*
@@ -94,6 +97,15 @@ export class DataService {
    */
   public pushStack(event: smEvent) {
     this.undoStack.push(event);
+
+    //------------------------------
+    // Clear all elements before
+    // if the size of undo stack 
+    // exceeds the limit 
+    //------------------------------
+    if (this.undoStack.length > DataService.UNDO_STACK_LIMIT) {
+      this.undoStack.splice(0, this.undoStack.length - DataService.UNDO_STACK_LIMIT);
+    }
   }
 
   /*

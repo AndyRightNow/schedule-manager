@@ -17,15 +17,6 @@ import { MenuService } from './../../../public/services/menu.service';
 export class EventComponent implements OnInit, DoCheck {
 	@Input() event: smEvent;
 
-	//--------------------------------
-	// Flags to toggle input boxes
-	// editing states
-	//--------------------------------
-	private isTitleEditing: boolean = true;
-	private isDescEditing: boolean = true;
-	private isStartTimeEditing: boolean = true;
-	private isEndTimeEditing: boolean = true;
-
 	// Visual presentation of priority
 	private priorityArray: boolean[] = new Array(5).fill(false);
 
