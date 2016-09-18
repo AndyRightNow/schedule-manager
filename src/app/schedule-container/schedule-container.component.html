@@ -1,5 +1,5 @@
 <div id="schedule-container">
-  <div id="event-container" *ngFor="let e of events; let i = index" >
-    <sm-event [event]="e"></sm-event>
+  <div id="event-container" *ngFor="let e of events; let i = index" [@inAndOutAnime]="'in'">
+    <sm-event [event]="e" ></sm-event>
   </div>
 </div>

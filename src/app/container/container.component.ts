@@ -11,26 +11,13 @@ import {
 })
 export class ContainerComponent implements OnInit {
 	//----------------------------
-	// Width and height ratios relative
-	// to the viewport
+	// Width and height of the container
 	//----------------------------
-	@Input() widthRatio: number;
-	@Input() heightRatio: number;
-
-	//---------------------------------
-	// Upper and lower bounds of
-	// width and height ratios
-	//---------------------------------
-	private ratioLower: number = 0.4;
-	private ratioUpper: number = 0.95;
+	@Input() width: number;
+	@Input() height: number;
 
   constructor() { }
 
 	ngOnInit() {
-		//---------------------------------
-		// Set default values
-		//---------------------------------
-		this.widthRatio = this.widthRatio || 0.8;
-		this.heightRatio = this.heightRatio || 0.8;
 	}
 }

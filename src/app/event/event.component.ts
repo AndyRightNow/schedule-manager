@@ -2,7 +2,12 @@ import {
   Component,
 	Input,
 	OnInit,
-	DoCheck
+	DoCheck,
+  trigger,
+  state,
+  style,
+  transition,
+  animate
 } from '@angular/core';
 import { smEvent } from './../../../public/classes/smEvent';
 import { Utils } from './../../../public/classes/utils';
@@ -12,7 +17,23 @@ import { MenuService } from './../../../public/services/menu.service';
 @Component({
   selector: 'sm-event',
   templateUrl: './event.component.html',
-	styleUrls: ['./event.component.css']
+	styleUrls: ['./event.component.css'],
+  animations: [
+    trigger('inAndOutAnime', [
+			state('void', style({
+				opacity: 0
+			})),
+      state('in', style({
+				opacity: 1
+      })),
+      transition('in => void', [
+        animate('100ms ease-in-out')
+      ]),
+      transition('void => in', [
+        animate('300ms ease-in-out')
+      ])
+    ])
+  ]
 })
 export class EventComponent implements OnInit, DoCheck {
 	@Input() event: smEvent;

@@ -91,7 +91,8 @@
     </div>
   </div>
   <div  class="text-right" 
-        [hidden]="!menuService.isEditModeOn">
+        *ngIf="menuService.isEditModeOn"
+        [@inAndOutAnime]="'in'">
     <span (click)="deleteEvent()">
       <md-icon class="delete">delete</md-icon>
     </span>
