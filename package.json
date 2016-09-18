@@ -2,12 +2,14 @@
   "name": "schedule-manager",
   "version": "1.0.0",
   "description": "A schedule manager app for Windows using Angular 2 and Electron",
+  "main": "electron-main.js",
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8080",
     "test": "karma start",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
     "postinstall": "typings install",
-    "clear:build": "rimraf dist"
+    "clear:build": "rimraf dist",
+    "electron:run": "electron ."
   },
   "author": "AndyRightNow",
   "license": "MIT",
@@ -46,6 +48,7 @@
     "@types/hammerjs": "^2.0.32",
     "angular2-template-loader": "^0.5.0",
     "css-loader": "^0.25.0",
+    "electron-prebuilt": "^1.4.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
