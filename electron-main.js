@@ -12,15 +12,18 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow;
 
 function createWindow() {
+  var screenWidth = electron.screen.getPrimaryDisplay().workAreaSize.width;
+  var screenHeight = electron.screen.getPrimaryDisplay().workAreaSize.height;
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 3300,
-    height: 3600,
+    width: screenWidth,
+    height: screenHeight,
     frame: true,
     resizable: true
   });
 
-  // and load the index.html of the app.
+  // Load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
 
   // Emitted when the window is closed.
