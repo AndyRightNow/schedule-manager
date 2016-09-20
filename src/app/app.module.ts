@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ClampPipe } from './../../public/pipes/clamp.pipe';
 import { ContainerComponent } from './container/container.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
 import { EventComponent } from './event/event.component';
 import { ScheduleContainerComponent } from './schedule-container/schedule-container.component';
 import { MdButtonModule } from '@angular2-material/button';
@@ -28,7 +29,8 @@ import { MdTooltipModule } from '@angular2-material/tooltip';
     MenuBarComponent,
     ScheduleContainerComponent,
     ClampPipe,
-    EventComponent
+    EventComponent,
+    StatusBarComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

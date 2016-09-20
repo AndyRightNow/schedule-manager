@@ -1,13 +1,12 @@
 #menu-bar {
   width: 100%;
-  height: 100%;
 }
 
 .menu-btn {
-    margin: 10px;
+  margin: 10px;
 }
 
 [color="warn"] {
-    background-color: orangered;
-    color: white;
+  background-color: orangered;
+  color: white;
 }
