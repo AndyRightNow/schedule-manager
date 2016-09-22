@@ -2,43 +2,65 @@
   <div>
     <div class="col">
       <div class="paddingtb3">
+        <!-- ****************-->
+        <!-- Title Boxes Starts -->
+        <!-- ****************-->
         <label for="title">Title: </label>
-        <span class="break-word align-top" [hidden]="event.isTitleEditing"> {{ event.title }} </span>
+        <span class="break-word align-top" *ngIf="!event.isTitleEditing"> {{ event.title }} </span>
+        <span *ngIf="!event.isTitleEditing" (click)="event.isTitleEditing = true"><md-icon>mode_edit</md-icon></span>
         <input  placeholder="Enter an event title" 
                 type="text" 
                 id="title" 
                 [(ngModel)]="event.title" 
-                [hidden]="!event.isTitleEditing"
+                *ngIf="event.isTitleEditing"
                 (keyup)="isExitEditingKeysDown($event) && event.isTitleEditing ? event.isTitleEditing = false : null">
-        <span [hidden]="event.isTitleEditing" (click)="event.isTitleEditing = true"><md-icon>mode_edit</md-icon></span>
-        <span [hidden]="!event.isTitleEditing" (click)="event.isTitleEditing = false"><md-icon>done</md-icon></span>
+        <span *ngIf="event.isTitleEditing" (click)="event.isTitleEditing = false"><md-icon>done</md-icon></span>
+        <!-- ****************-->
+        <!-- Title Boxes Ends -->
+        <!-- ****************-->
       </div>
       <div class="paddingtb3">
+        <!-- ****************-->
+        <!-- Description Boxes Starts -->
+        <!-- ****************-->
         <label for="desc">Description: </label>
-        <span class="break-word align-top" [hidden]="event.isDescEditing"> {{ event.description }} </span>
+        <span class="break-word align-top" *ngIf="!event.isDescEditing"> {{ event.description }} </span>
+        <span *ngIf="!event.isDescEditing" (click)="event.isDescEditing = true"><md-icon>mode_edit</md-icon></span>
         <textarea placeholder="Enter an event description" 
                   type="text" 
                   id="desc" 
                   [(ngModel)]="event.description" 
-                  [hidden]="!event.isDescEditing"
+                  *ngIf="event.isDescEditing"
                   (keyup)="$event.keyCode == 27 && event.isDescEditing ? event.isDescEditing = false : null"></textarea>
-        <span [hidden]="event.isDescEditing" (click)="event.isDescEditing = true"><md-icon>mode_edit</md-icon></span>
-        <span [hidden]="!event.isDescEditing" (click)="event.isDescEditing = false"><md-icon>done</md-icon></span>
+        <span *ngIf="event.isDescEditing" (click)="event.isDescEditing = false"><md-icon>done</md-icon></span>
+        <!-- ****************-->
+        <!-- Description Boxes Ends -->
+        <!-- ****************-->
       </div>
       <div class="paddingtb3">
+        <!-- ****************-->
+        <!-- Priority Boxes Starts -->
+        <!-- ****************-->
         <label for="priority">Priority: </label>
         <span *ngFor="let pri of priorityArray; let i = index">
           <span (click)="changePriority(i)" 
                 class="priority-circle align-middle" 
                 [ngClass]="{ 'priority-selected': pri ? true : false }"></span>
         </span>
+        <!-- ****************-->
+        <!-- Priority Boxes Ends -->
+        <!-- ****************-->
       </div>
     </div><div class="col">
       <div class="paddingtb3">
+        <!-- ****************-->
+        <!-- StartTime Boxes Starts -->
+        <!-- ****************-->
         <label for="start-time">Start Time: </label>
-        <span class="align-top" [hidden]="event.isStartTimeEditing"> {{ formatTime(event.startTime.hour | clamp:0:23) }}: {{ formatTime(event.startTime.minute | clamp:0:59) }}: {{ formatTime(event.startTime.second | clamp:0:59) }} </span>
+        <span class="align-top" *ngIf="!event.isStartTimeEditing"> {{ formatTime(event.startTime.hour | clamp:0:23) }}: {{ formatTime(event.startTime.minute | clamp:0:59) }}: {{ formatTime(event.startTime.second | clamp:0:59) }} </span>
+        <span *ngIf="!event.isStartTimeEditing" (click)="event.isStartTimeEditing = true"><md-icon>mode_edit</md-icon></span>
         <span class="align-top" 
-              [hidden]="!event.isStartTimeEditing" 
+              *ngIf="event.isStartTimeEditing" 
               (keyup)="isExitEditingKeysDown($event) && event.isStartTimeEditing ? event.isStartTimeEditing = false : null">
           <input  placeholder="Hour" 
                   type="text" 
@@ -58,14 +80,20 @@
                   [(ngModel)]="event.startTime.second"
                   class="time-input">
         </span>
-        <span [hidden]="event.isStartTimeEditing" (click)="event.isStartTimeEditing = true"><md-icon>mode_edit</md-icon></span>
-        <span [hidden]="!event.isStartTimeEditing" (click)="event.isStartTimeEditing = false"><md-icon>done</md-icon></span>
+        <span *ngIf="event.isStartTimeEditing" (click)="event.isStartTimeEditing = false"><md-icon>done</md-icon></span>
+        <!-- ****************-->
+        <!-- StartTime Boxes Ends -->
+        <!-- ****************-->
       </div>
       <div class="paddingtb3">
+        <!-- ****************-->
+        <!-- EndTime Boxes Starts -->
+        <!-- ****************-->
         <label for="end-time">End Time: </label>
-        <span class="align-top" [hidden]="event.isEndTimeEditing"> {{ formatTime(event.endTime.hour | clamp:0:23) }}: {{ formatTime(event.endTime.minute | clamp:0:59) }}: {{ formatTime(event.endTime.second | clamp:0:59) }} </span>
+        <span class="align-top" *ngIf="!event.isEndTimeEditing"> {{ formatTime(event.endTime.hour | clamp:0:23) }}: {{ formatTime(event.endTime.minute | clamp:0:59) }}: {{ formatTime(event.endTime.second | clamp:0:59) }} </span>
+        <span *ngIf="!event.isEndTimeEditing" (click)="event.isEndTimeEditing = true"><md-icon>mode_edit</md-icon></span>
         <span class="align-top" 
-              [hidden]="!event.isEndTimeEditing"
+              *ngIf="event.isEndTimeEditing"
               (keyup)="isExitEditingKeysDown($event) && event.isEndTimeEditing ? event.isEndTimeEditing = false : null">
           <input  placeholder="Hour" 
                   type="text" 
@@ -85,8 +113,10 @@
                   [(ngModel)]="event.endTime.second"
                   class="time-input">
         </span>
-        <span [hidden]="event.isEndTimeEditing" (click)="event.isEndTimeEditing = true"><md-icon>mode_edit</md-icon></span>
-        <span [hidden]="!event.isEndTimeEditing" (click)="event.isEndTimeEditing = false"><md-icon>done</md-icon></span>
+        <span *ngIf="event.isEndTimeEditing" (click)="event.isEndTimeEditing = false"><md-icon>done</md-icon></span>
+        <!-- ****************-->
+        <!-- EndTime Boxes Ends -->
+        <!-- ****************-->
       </div>
     </div>
   </div>
