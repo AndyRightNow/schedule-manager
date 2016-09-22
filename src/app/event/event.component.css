@@ -85,9 +85,6 @@ textarea:focus {
   outline: none;
 }
 
-.break-word {
-  word-wrap: break-word;
-}
 
 .col {
   display: inline-block;

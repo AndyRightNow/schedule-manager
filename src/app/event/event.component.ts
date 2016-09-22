@@ -95,4 +95,12 @@ export class EventComponent implements OnInit, DoCheck {
 		this.event.endTime.minute = isNaN(this.event.endTime.minute) ? 0 : Utils.clamp(this.event.endTime.minute, 0, 59);
 		this.event.endTime.second = isNaN(this.event.endTime.second) ? 0 : Utils.clamp(this.event.endTime.second, 0, 59);
 	}
+
+	/*
+	 * Check whether the keys to exit editing are down
+	 */
+	private isExitEditingKeysDown(event: any) {
+		// Enter or Escape
+		return event ? event.keyCode == 13 || event.keyCode == 27 : false;
+	}
 }

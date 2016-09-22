@@ -27,3 +27,11 @@ fa {
 .text-center {
     text-align: center;
 }
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.align-middle {
+    vertical-align: middle;
+}

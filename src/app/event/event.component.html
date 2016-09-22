@@ -3,25 +3,25 @@
     <div class="col">
       <div class="paddingtb3">
         <label for="title">Title: </label>
-        <span class="break-word" [hidden]="event.isTitleEditing"> {{ event.title }} </span>
+        <span class="break-word align-top" [hidden]="event.isTitleEditing"> {{ event.title }} </span>
         <input  placeholder="Enter an event title" 
                 type="text" 
                 id="title" 
                 [(ngModel)]="event.title" 
                 [hidden]="!event.isTitleEditing"
-                (keypress)="$event.keyCode == 13 && event.isTitleEditing ? event.isTitleEditing = false : null">
+                (keyup)="isExitEditingKeysDown($event) && event.isTitleEditing ? event.isTitleEditing = false : null">
         <span [hidden]="event.isTitleEditing" (click)="event.isTitleEditing = true"><md-icon>mode_edit</md-icon></span>
         <span [hidden]="!event.isTitleEditing" (click)="event.isTitleEditing = false"><md-icon>done</md-icon></span>
       </div>
       <div class="paddingtb3">
         <label for="desc">Description: </label>
-        <span class="break-word" [hidden]="event.isDescEditing"> {{ event.description }} </span>
+        <span class="break-word align-top" [hidden]="event.isDescEditing"> {{ event.description }} </span>
         <textarea placeholder="Enter an event description" 
                   type="text" 
                   id="desc" 
                   [(ngModel)]="event.description" 
                   [hidden]="!event.isDescEditing"
-                  (keypress)="$event.keyCode == 13 && event.isDescEditing ? event.isDescEditing = false : null"></textarea>
+                  (keyup)="$event.keyCode == 27 && event.isDescEditing ? event.isDescEditing = false : null"></textarea>
         <span [hidden]="event.isDescEditing" (click)="event.isDescEditing = true"><md-icon>mode_edit</md-icon></span>
         <span [hidden]="!event.isDescEditing" (click)="event.isDescEditing = false"><md-icon>done</md-icon></span>
       </div>
@@ -29,7 +29,7 @@
         <label for="priority">Priority: </label>
         <span *ngFor="let pri of priorityArray; let i = index">
           <span (click)="changePriority(i)" 
-                class="priority-circle" 
+                class="priority-circle align-middle" 
                 [ngClass]="{ 'priority-selected': pri ? true : false }"></span>
         </span>
       </div>
@@ -39,7 +39,7 @@
         <span class="align-top" [hidden]="event.isStartTimeEditing"> {{ formatTime(event.startTime.hour | clamp:0:23) }}: {{ formatTime(event.startTime.minute | clamp:0:59) }}: {{ formatTime(event.startTime.second | clamp:0:59) }} </span>
         <span class="align-top" 
               [hidden]="!event.isStartTimeEditing" 
-              (keypress)="$event.keyCode == 13 && event.isStartTimeEditing ? event.isStartTimeEditing = false : null">
+              (keyup)="isExitEditingKeysDown($event) && event.isStartTimeEditing ? event.isStartTimeEditing = false : null">
           <input  placeholder="Hour" 
                   type="text" 
                   id="start-hour" 
@@ -66,7 +66,7 @@
         <span class="align-top" [hidden]="event.isEndTimeEditing"> {{ formatTime(event.endTime.hour | clamp:0:23) }}: {{ formatTime(event.endTime.minute | clamp:0:59) }}: {{ formatTime(event.endTime.second | clamp:0:59) }} </span>
         <span class="align-top" 
               [hidden]="!event.isEndTimeEditing"
-              (keypress)="$event.keyCode == 13 && event.isEndTimeEditing ? event.isEndTimeEditing = false : null">
+              (keyup)="isExitEditingKeysDown($event) && event.isEndTimeEditing ? event.isEndTimeEditing = false : null">
           <input  placeholder="Hour" 
                   type="text" 
                   id="end-hour" 
